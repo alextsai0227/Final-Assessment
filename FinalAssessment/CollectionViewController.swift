@@ -76,7 +76,15 @@ class CollectionViewController: UIViewController,UICollectionViewDataSource,UICo
         if indexPath.row == 3{
             self.performSegueWithIdentifier("showViewController", sender: nil)
         }
-        
+        if indexPath.row == 4{
+            let encodedName = "104台北市中山區南京東路二段97號".stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
+            let path = "http://maps.apple.com/?q=" + encodedName!
+            if let url = NSURL(string: path) {
+                UIApplication.sharedApplication().openURL(url)
+            } else {
+                // Could not construct url. Handle error.
+            }
+        }
     }
         
 

@@ -130,11 +130,12 @@
                         <outlet property="flowLayout" destination="AiY-2H-2PZ" id="g9b-4B-T3P"/>
                         <outlet property="mutiCollectionView" destination="lGa-8i-Yeq" id="68N-gM-4go"/>
                         <segue destination="nwH-Ir-jJ3" kind="show" identifier="showViewController" id="0T4-ga-rQA"/>
+                        <segue destination="RBK-ky-xOm" kind="show" identifier="showMap" id="oKj-x9-p8k"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WvM-rM-O2w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1914" y="386"/>
+            <point key="canvasLocation" x="1880" y="314"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="7Ak-Vo-MFR">
@@ -148,7 +149,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-gM-xlQ">
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nC0-gM-xlQ">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </mapView>
                         </subviews>
@@ -160,6 +161,9 @@
                             <constraint firstItem="nC0-gM-xlQ" firstAttribute="top" secondItem="tOx-sb-z7a" secondAttribute="top" id="vmI-TB-rPx"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="nC0-gM-xlQ" id="lcy-C4-5dA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VZF-7h-RgC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
