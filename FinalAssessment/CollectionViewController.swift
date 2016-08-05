@@ -7,8 +7,8 @@
 //
 
 import UIKit
-
-class CollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate {
+import MessageUI
+class CollectionViewController: UIViewController,UICollectionViewDataSource,UICollectionViewDelegate, MFMailComposeViewControllerDelegate {
 
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     @IBOutlet weak var mutiCollectionView: UICollectionView!
@@ -42,7 +42,19 @@ class CollectionViewController: UIViewController,UICollectionViewDataSource,UICo
     }
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("mutiCollectionView", forIndexPath: indexPath) as! MutiCollectionViewCell
-
+        if indexPath.row == 0{
+            cell.mutiButton.setTitle("顯示一個AlertView", forState: .Normal)
+        }else if indexPath.row == 1{
+            cell.mutiButton.setTitle("顯示一個ActionView", forState: .Normal)
+        }else if indexPath.row == 2{
+            cell.mutiButton.setTitle("撥打117", forState: .Normal)
+        }else if indexPath.row == 3{
+            cell.mutiButton.setTitle("開啟APP在iOS設定", forState: .Normal)
+        }else if indexPath.row == 4{
+            cell.mutiButton.setTitle("打開地圖導航到AC", forState: .Normal)
+        }else if indexPath.row == 5{
+            cell.mutiButton.setTitle("開啟信箱“測試信件”", forState: .Normal)
+        }
         
        return cell
     }
@@ -74,7 +86,8 @@ class CollectionViewController: UIViewController,UICollectionViewDataSource,UICo
             }
         }
         if indexPath.row == 3{
-            self.performSegueWithIdentifier("showViewController", sender: nil)
+            let appSetting = NSURL(string: UIApplicationOpenSettingsURLString)
+            UIApplication.sharedApplication().openURL(appSetting!)
         }
         if indexPath.row == 4{
             let encodedName = "104台北市中山區南京東路二段97號".stringByAddingPercentEncodingWithAllowedCharacters(.URLQueryAllowedCharacterSet())
@@ -85,8 +98,23 @@ class CollectionViewController: UIViewController,UICollectionViewDataSource,UICo
                 // Could not construct url. Handle error.
             }
         }
-    }
+        if indexPath.row == 5{
+            if( MFMailComposeViewController.canSendMail() ) {
+                
+                let mailComposer = MFMailComposeViewController()
+                mailComposer.mailComposeDelegate = self
+                
+                //Set the subject and message of the email
+                mailComposer.setSubject("測試信件")
+                self.presentViewController(mailComposer, animated: true, completion: nil)
+            }
+        }
         
+        
+    }
+    func mailComposeController(controller: MFMailComposeViewController, didFinishWithResult result: MFMailComposeResult, error: NSError?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 
 
 }
