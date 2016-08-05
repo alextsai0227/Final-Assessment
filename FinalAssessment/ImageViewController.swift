@@ -32,6 +32,15 @@ class ImageViewController: UIViewController, UIScrollViewDelegate {
         return self.myImageView
     }
 
+    @IBAction func shareImage(sender: AnyObject) {
+        let image = myimage.image
+        let text = myimage.imageDescription
+        let array = [text!, image!]
+        let controller = UIActivityViewController(activityItems:array,applicationActivities: nil )
+        self.presentViewController(controller, animated: true,
+                                   completion: nil)
+        
+    }
   
 
 }
