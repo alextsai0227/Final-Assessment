@@ -169,11 +169,106 @@
                     </navigationItem>
                     <connections>
                         <outlet property="imageTableView" destination="e1M-e0-uB8" id="rR6-Z1-MdZ"/>
+                        <segue destination="z2a-Bc-hUc" kind="show" identifier="showImageScrollVC" id="9gS-CB-x8h"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YGo-B8-56f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2692" y="999"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="KPs-WF-zqc">
+            <objects>
+                <viewController id="z2a-Bc-hUc" customClass="ImageViewController" customModule="FinalAssessment" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wyr-9J-lt7"/>
+                        <viewControllerLayoutGuide type="bottom" id="HLc-md-eS4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4zK-Cd-3Nt">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IdD-sg-NXk">
+                                <rect key="frame" x="0.0" y="86" width="600" height="458"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fDa-yg-s0G">
+                                        <rect key="frame" x="150" y="0.0" width="300" height="300"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="Nh1-Xa-UDn"/>
+                                            <constraint firstAttribute="height" constant="300" id="f7c-q9-E9g"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="6t1-oM-N8j"/>
+                                    <constraint firstItem="fDa-yg-s0G" firstAttribute="top" secondItem="IdD-sg-NXk" secondAttribute="top" id="Fg1-hf-YBb"/>
+                                    <constraint firstItem="fDa-yg-s0G" firstAttribute="centerY" secondItem="IdD-sg-NXk" secondAttribute="centerY" id="HQQ-nj-Brt"/>
+                                    <constraint firstAttribute="trailing" secondItem="fDa-yg-s0G" secondAttribute="trailing" id="Ixt-pw-z7r"/>
+                                    <constraint firstItem="fDa-yg-s0G" firstAttribute="leading" secondItem="IdD-sg-NXk" secondAttribute="leading" id="LjV-ay-EbT"/>
+                                    <constraint firstItem="fDa-yg-s0G" firstAttribute="centerX" secondItem="IdD-sg-NXk" secondAttribute="centerX" id="RpA-vx-Xhv"/>
+                                    <constraint firstAttribute="bottom" secondItem="fDa-yg-s0G" secondAttribute="bottom" constant="158" id="qIm-FB-wdq"/>
+                                    <constraint firstAttribute="width" constant="600" id="vrk-lf-sZF"/>
+                                    <constraint firstAttribute="height" constant="458" id="xSC-H1-2Zh"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="6t1-oM-N8j"/>
+                                        <exclude reference="vrk-lf-sZF"/>
+                                        <exclude reference="HQQ-nj-Brt"/>
+                                        <exclude reference="Ixt-pw-z7r"/>
+                                        <exclude reference="LjV-ay-EbT"/>
+                                    </mask>
+                                </variation>
+                            </scrollView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKb-Gz-4ye">
+                                <rect key="frame" x="279" y="552" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="fDa-yg-s0G" firstAttribute="centerY" secondItem="4zK-Cd-3Nt" secondAttribute="centerY" id="7Vk-fP-lEc"/>
+                            <constraint firstAttribute="trailing" secondItem="IdD-sg-NXk" secondAttribute="trailing" id="ABu-wd-FIY"/>
+                            <constraint firstItem="IdD-sg-NXk" firstAttribute="top" secondItem="4zK-Cd-3Nt" secondAttribute="topMargin" id="Dig-mg-Ljn"/>
+                            <constraint firstItem="IdD-sg-NXk" firstAttribute="leading" secondItem="4zK-Cd-3Nt" secondAttribute="leadingMargin" id="Rb0-pE-KK9"/>
+                            <constraint firstAttribute="trailing" secondItem="IdD-sg-NXk" secondAttribute="trailing" id="RdR-M9-3Ji"/>
+                            <constraint firstItem="IdD-sg-NXk" firstAttribute="top" secondItem="Wyr-9J-lt7" secondAttribute="bottom" constant="22" id="Rpe-dp-YPC"/>
+                            <constraint firstItem="IdD-sg-NXk" firstAttribute="leading" secondItem="4zK-Cd-3Nt" secondAttribute="leading" constant="150" id="W9D-mZ-lOe"/>
+                            <constraint firstItem="yKb-Gz-4ye" firstAttribute="top" secondItem="IdD-sg-NXk" secondAttribute="bottom" constant="30" id="ZCv-M4-aaX"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="IdD-sg-NXk" secondAttribute="bottom" id="Zxx-al-BVx"/>
+                            <constraint firstItem="yKb-Gz-4ye" firstAttribute="top" secondItem="IdD-sg-NXk" secondAttribute="bottom" constant="8" id="cqO-sy-RC0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IdD-sg-NXk" secondAttribute="trailing" id="e2O-1f-nGi"/>
+                            <constraint firstItem="yKb-Gz-4ye" firstAttribute="centerX" secondItem="IdD-sg-NXk" secondAttribute="centerX" id="nQS-eZ-Gbg"/>
+                            <constraint firstItem="IdD-sg-NXk" firstAttribute="leading" secondItem="4zK-Cd-3Nt" secondAttribute="leading" id="q3T-0j-5Zj"/>
+                            <constraint firstItem="IdD-sg-NXk" firstAttribute="leading" secondItem="4zK-Cd-3Nt" secondAttribute="leading" id="s02-9H-rsG"/>
+                            <constraint firstItem="fDa-yg-s0G" firstAttribute="centerX" secondItem="4zK-Cd-3Nt" secondAttribute="centerX" id="zgO-SY-uP2"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Dig-mg-Ljn"/>
+                                <exclude reference="Rb0-pE-KK9"/>
+                                <exclude reference="RdR-M9-3Ji"/>
+                                <exclude reference="W9D-mZ-lOe"/>
+                                <exclude reference="Zxx-al-BVx"/>
+                                <exclude reference="e2O-1f-nGi"/>
+                                <exclude reference="s02-9H-rsG"/>
+                                <exclude reference="7Vk-fP-lEc"/>
+                                <exclude reference="zgO-SY-uP2"/>
+                                <exclude reference="ZCv-M4-aaX"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="ImageScrollView" destination="IdD-sg-NXk" id="Csc-qS-4aR"/>
+                        <outlet property="imageDescriptionLabel" destination="yKb-Gz-4ye" id="dQq-tF-UGc"/>
+                        <outlet property="myImageView" destination="fDa-yg-s0G" id="X4u-u3-GuN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zuq-RR-dkj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2723" y="1669"/>
         </scene>
         <!--Image Detail View Controller-->
         <scene sceneID="805-j4-daV">
